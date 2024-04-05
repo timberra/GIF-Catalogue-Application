@@ -303,7 +303,6 @@
 			mainGroup = FA8110932BB45702000FDF23;
 			packageReferences = (
 				FA8110E42BBBF8FD000FDF23 /* XCRemoteSwiftPackageReference "SDWebImage" */,
-				FA8110EC2BBD4564000FDF23 /* XCRemoteSwiftPackageReference "SDWebImageFLPlugin" */,
 				FA8110F22BBD6C69000FDF23 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = FA81109D2BB45702000FDF23 /* Products */;
@@ -714,14 +713,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.19.1;
-			};
-		};
-		FA8110EC2BBD4564000FDF23 /* XCRemoteSwiftPackageReference "SDWebImageFLPlugin" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImageFLPlugin";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.6.0;
 			};
 		};
 		FA8110F22BBD6C69000FDF23 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
