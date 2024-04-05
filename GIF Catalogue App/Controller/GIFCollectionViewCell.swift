@@ -11,7 +11,10 @@ import SDWebImage
 import ImageIO
 
 class GIFCollectionViewCell: UICollectionViewCell {
+    
     @IBOutlet weak var imageView: UIImageView!
+    
+    let placeholderURL = URL(string: "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTJjN2N2YnBhMzQzN2VvZGR6aWFnaDl5eWJiemJidGF0aW5zczRtaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oEjI6SIIHBdRxXI40/giphy.gif")
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -23,9 +26,7 @@ class GIFCollectionViewCell: UICollectionViewCell {
     
     func configure(with gifURL: String) {
         // Set a placeholder image (GIF link) while loading
-        if let placeholderURL = URL(string: "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTJjN2N2YnBhMzQzN2VvZGR6aWFnaDl5eWJiemJidGF0aW5zczRtaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oEjI6SIIHBdRxXI40/giphy.gif") {
             imageView.sd_setImage(with: placeholderURL, completed: nil)
-        }
         
         _ = imageView.loadGIF(from: gifURL)
             .subscribe(onNext: { _ in
