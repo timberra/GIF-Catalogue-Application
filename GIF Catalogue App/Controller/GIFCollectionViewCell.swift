@@ -37,30 +37,30 @@ extension UIImageView {
                     observer.onError(NSError(domain: "Invalid URL", code: 0, userInfo: nil))
                     return
                 }
-                guard let data = try? Data(contentsOf: gifURL) else {
-                    observer.onError(NSError(domain: "Invalid URL", code: 0, userInfo: nil))
-                    return
-                }
-                guard let source = CGImageSourceCreateWithData(data as CFData, nil) else {
-                    observer.onError(NSError(domain: "Invalid GIF data", code: 0, userInfo: nil))
-                    return
-                }
-                let frameCount = CGImageSourceGetCount(source)
-                var images = [UIImage]()
-                
-                for i in 0..<frameCount {
-                    guard let cgImage = CGImageSourceCreateImageAtIndex(source, i, nil) else {
-                        continue
+                do {
+                    let data = try Data(contentsOf: gifURL)
+                    guard let source = CGImageSourceCreateWithData(data as CFData, nil) else {
+                        observer.onError(NSError(domain: "Invalid GIF data", code: 0, userInfo: nil))
+                        return
                     }
-                    let uiImage = UIImage(cgImage: cgImage)
-                    images.append(uiImage)
-                }
-                DispatchQueue.main.async {
-                    self.animationImages = images
-                    self.animationDuration = Double(frameCount) * 0.1 // Adjust duration as needed
-                    self.startAnimating()
-                    observer.onNext(())
-                    observer.onCompleted()
+                    let frameCount = CGImageSourceGetCount(source)
+                    var images = [UIImage]()
+                    for i in 0..<frameCount {
+                        guard let cgImage = CGImageSourceCreateImageAtIndex(source, i, nil) else {
+                            continue
+                        }
+                        let uiImage = UIImage(cgImage: cgImage)
+                        images.append(uiImage)
+                    }
+                    DispatchQueue.main.async {
+                        self.animationImages = images
+                        self.animationDuration = Double(frameCount) * 0.1 // Adjust duration as needed
+                        self.startAnimating()
+                        observer.onNext(())
+                        observer.onCompleted()
+                    }
+                } catch {
+                    observer.onError(error)
                 }
             }
             return Disposables.create()
