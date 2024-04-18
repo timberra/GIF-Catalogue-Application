@@ -42,7 +42,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="GIFCollectionViewCell" reuseIdentifier="gifCell" id="OuO-3v-dUv" customClass="GIFCollectionViewCell" customModule="GIF_Catalogue_App">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="GIFCollectionViewCell" reuseIdentifier="gifItemCollectionViewCell" id="OuO-3v-dUv" customClass="GIFCollectionViewCell" customModule="GIF_Catalogue_App">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="om8-fk-fdy">

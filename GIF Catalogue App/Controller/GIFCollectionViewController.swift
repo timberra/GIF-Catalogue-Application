@@ -47,7 +47,7 @@ extension GIFCollectionViewController: UICollectionViewDataSource {
         return gifs.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gifCell", for: indexPath) as? GIFCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gifItemCollectionViewCell", for: indexPath) as? GIFCollectionViewCell else {
             return UICollectionViewCell()
         }
         let gif = gifs[indexPath.item]
